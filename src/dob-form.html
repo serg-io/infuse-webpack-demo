@@ -1,0 +1,12 @@
+<template>
+	<form onsubmit="event.preventDefault()">
+		<label for="dob">Date of birth:</label>
+		<input id="dob" type="date" autofocus>
+		<button type="submit" disabled?="${ !host.isOver18(event) }" watch-host="change">
+			Continue
+		</button>
+		<p class="text-${ host.isOver18(event) ? 'success' : 'danger' }" hidden?="${ !event }" watch-host="change">
+			${ host.isOver18(event) ? 'You\'re over 18, you can continue.' : 'You must be at least 18 years old to continue.' }
+		</p>
+	</form>
+</template>
