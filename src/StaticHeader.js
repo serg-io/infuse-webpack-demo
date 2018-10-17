@@ -1,7 +1,7 @@
-import * as Infuse from 'infuse.host';
+import { Host } from './infuse';
 import template from './static-header.html';
 
-export default class StaticHeader extends Infuse.Host {
+export default class StaticHeader extends Host {
 	get template() {
 		return template;
 	}

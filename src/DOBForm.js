@@ -1,10 +1,10 @@
 import * as moment from 'moment';
-import * as Infuse from 'infuse.host';
+import { Host } from './infuse';
 import template from './dob-form.html';
 
 const EIGHTEEN_YEARS_AGO = moment().startOf('day').subtract(18, 'years').toDate();
 
-export default class DOBForm extends Infuse.Host {
+export default class DOBForm extends Host {
 	get template() {
 		return template;
 	}

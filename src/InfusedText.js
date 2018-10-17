@@ -1,7 +1,7 @@
-import * as Infuse from 'infuse.host';
+import { Host } from './infuse';
 import template from './infused-text.html';
 
-export default class InfusedText extends Infuse.Host {
+export default class InfusedText extends Host {
 	get template() {
 		return template;
 	}
