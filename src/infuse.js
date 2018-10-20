@@ -1,6 +1,6 @@
-import { loadConfigs, Host } from 'infuse.host';
+import { setConfigs } from 'infuse.host/src/configs';
 
-loadConfigs({
+setConfigs({
 	tags: {
 		i18n: function(strings) {
 			console.log(strings);
@@ -9,4 +9,4 @@ loadConfigs({
 	},
 });
 
-export { Host };
+export { Host } from 'infuse.host';
