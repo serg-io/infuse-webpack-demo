@@ -1,0 +1,26 @@
+<template>
+	<h3>Football Sunday Games</h3>
+	<table>
+		<caption>Season ${ host.seasonYear } - Week ${ host.weekNumber }</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Date</th>
+				<th>Time (EDT)</th>
+				<th>Home Team</th>
+				<th>Visitor Team</th>
+			</tr>
+		</thead>
+		<tbody>
+			<template for="game, i, games" each="${ host.games }">
+				<tr>
+					<td>${ i + 1 }</td>
+					<td>${ game.date }</td>
+					<td>${ game.time }</td>
+					<td>${ game.home }</td>
+					<td>${ game.visitor }</td>
+				</tr>
+			</template>
+		</tbody>
+	</table>
+</template>
