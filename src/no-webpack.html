@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>Infuse.host Demo (without webpack)</title>
+</head>
+<body>
+	<template>
+		<h1>${ data.title }</h1>
+	</template>
+	<header></header>
+
+	<p>
+		This simple page demonstrates how to use infuse.host without webpack.
+	</p>
+	<p>
+		When the page is loaded, the <code>&lt;template&gt;</code> element is parsed, cloned, and
+		infused. The resulting fragment (<code>&lt;h1&gt;Page Title&lt;/h1&gt;</code>) is added
+		to the <code>&lt;header&gt;</code> element.
+	</p>
+
+	<script type="module">
+		// Import the infuse and parser modules.
+		import infuse from './infuse.host/src/infuse.js';
+		import parseTemplate from './infuse.host/src/parseTemplate.js';
+
+		// Find the <template> and <header>.
+		const template = document.querySelector('template');
+		const header = document.querySelector('header');
+
+		// Parse template.
+		parseTemplate(template);
+
+		// Clone/infuse template and add infused fragment to header.
+		const fragment = infuse(header, template, { title: 'Page Title' });
+		header.appendChild(fragment);
+	</script>
+</body>
+</html>

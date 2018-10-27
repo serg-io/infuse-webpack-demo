@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Custom Element Using Infuse.Host (without webpack)</title>
+</head>
+<body>
+	<template>
+		<h1>${ host.pageTitle }</h1>
+	</template>
+	<custom-header></custom-header>
+
+	<p>
+		This page demonstrates how to use the class <code>Infuse.Host</code> to define a custom
+		element.
+	</p>
+	<p>
+		When the page is loaded, the <code>&lt;template&gt;</code> element is parsed and a the
+		<code>&lt;custom-header&gt;</code> custom element is defined.
+	</p>
+	<p>
+		The <code>&lt;custom-header&gt;</code> element, which is already in the document, is then
+		automatically infused using the parsed template.
+	</p>
+
+	<script type="module">
+		// Import the infuse and parser modules.
+		import * as Infuse from './infuse.host/src/infuse.js';
+		import parseTemplate from './infuse.host/src/parseTemplate.js';
+
+		// Find the <template> and <header>.
+		const template = document.querySelector('template');
+		const header = document.querySelector('header');
+
+		// Parse template.
+		parseTemplate(template);
+
+		// Extend `Infuse.Host` to define a class for the new custom element.
+		class CustomHeader extends Infuse.Host {
+			get template() {
+				return template;
+			}
+
+			get pageTitle() {
+				return 'Page Title';
+			}
+		}
+
+		// Define the custom element using the `CustomHeader` class.
+		window.customElements.define('custom-header', CustomHeader);
+	</script>
+</body>
+</html>
