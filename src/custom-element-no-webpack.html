@@ -27,11 +27,8 @@
 		import * as Infuse from './infuse.host/src/infuse.js';
 		import parseTemplate from './infuse.host/src/parseTemplate.js';
 
-		// Find the <template> and <header>.
+		// Find the <template> and parse it.
 		const template = document.querySelector('template');
-		const header = document.querySelector('header');
-
-		// Parse template.
 		parseTemplate(template);
 
 		// Extend `Infuse.Host` to define a class for the new custom element.
